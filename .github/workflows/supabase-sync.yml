@@ -11,6 +11,6 @@ jobs:
     steps:
       - name: Call Supabase Edge Function
         run: |
-          curl -sS "${{ secrets.SUPABASE_URL }}/functions/v1/sync-ticker-snapshot?ticker=AAPL" \
+          curl -sS "${{ secrets.SUPABASE_URL }}/functions/v1/sync-ticker-snapshot?ticker=TSLA" \
           -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
           -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
