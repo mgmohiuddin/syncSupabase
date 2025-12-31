@@ -2,7 +2,7 @@ name: Sync Supabase Ticker Snapshot
 
 on:
   schedule:
-    - cron: "*/1 * * * *"   # every 5 minutes
+    - cron: "* * * * *"   # every minute
   workflow_dispatch:
 
 jobs:
@@ -11,6 +11,6 @@ jobs:
     steps:
       - name: Call Supabase Edge Function
         run: |
-          curl -sS -X GET "${{ secrets.SUPABASE_URL }}/functions/v1/sync-ticker-snapshot?ticker=AAPL" \
+          curl -sS "${{ secrets.SUPABASE_URL }}/functions/v1/sync-ticker-snapshot?ticker=AAPL" \
           -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
           -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
